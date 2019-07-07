@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决跨域的几种方式]]></title>
+    <url>%2F2019%2F07%2F07%2F%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[什么是跨域？为什么会有这个问题？因为浏览器同源策略：禁止跨不同源头访问资源。仅限于ajax*跨域：从一个域名下的网页，向另一个域名下的服务端发送ajax请求—受服务器同源策略限制，禁止发送** 域名不同、子级域名不同、端口号不同、协议不同、同一台及其的域名和ip之间相互访问这些都是会报错的！！##例如这些##http://www.a.com -&gt;http://www.b.comhttp://www.b.a.com -&gt; http://www.c.a.comhttp://localhost:5500 -&gt;http://localhost:3300http://localhost -&gt; https://localhosthttp://localhost -&gt; http://127.0.0.1 都是会报错的 CORS…Access-Control-Allow-Origin翻译过来就是 CORS-&gt; Cross-Origin Resource Sharing 跨域资源共享Access-Control-Allow-Origin 访问 控制 允许 来源；域 怎么解决呢？1.CORS方式 即 跨域资源访问技术是现在比较主流的解决方式，仅服务端改代码，就可跨域这里再说一下同源策略的本质：其实可以发送ajax请求，也可以正常执行服务端的程序，也可以顺利返回正确的结果。但是，浏览器经过检查数据的来源，发现和当前网页的来源不一致，所以，到手的数据不让用！怎么办呢？其实就是在服务端返回响应的响应头中伪装成指定的源头 res.send(result)res.send()是一种简写 等效于 res.writeHead()+res.write(JSON.stringify(result))+res.end 可以这样子写12345res.writeHead(200,&#123; &quot;Access-Control-Allow-Origin&quot;:&quot;http://127.0.0.1:5500&quot; &#125;);res.write(JSON.stringify(result));res.end() 这样返回的数据，就被伪装成来自于127.0.0.1:5500的，就可以访问了。也可以引入cors模块,例如 12345const cors=require(&apos;cors&apos;);server.use(cors(&#123; &apos;credentials&apos;:true, &apos;origin&apos;:&apos;http://localhost:8100&apos;&#125;)); 2.JSONP方式：JSON with padding 填充式JSONjQuery对jsonp方式跨域进行了终极的简化: 123456789$.ajax(&#123; url: type: data: dataType:&quot;jsonp&quot; success:function()&#123; ... ...&#125;&#125;) 先写这么多吧，我比较熟练的就是cors了，写的比较简单，应该是简陋吧，只是我个人学习过程中的一点收获。毕竟~~有google]]></content>
+      <tags>
+        <tag>跨域</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第二篇 说点什么好呢]]></title>
     <url>%2F2019%2F06%2F25%2F%E7%AC%AC%E4%BA%8C%E7%AF%87-%E8%AF%B4%E7%82%B9%E4%BB%80%E4%B9%88%E5%A5%BD%E5%91%A2%2F</url>
     <content type="text"><![CDATA[]]></content>

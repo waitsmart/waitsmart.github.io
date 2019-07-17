@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="深拷贝与浅拷贝,">
 
 
 
@@ -77,16 +77,18 @@
 
 
 
-<meta name="description" content="个人博客，前端学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="星辰">
-<meta property="og:url" content="https://waitsmart.github.io/index.html">
+<meta name="description" content="拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码： 12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10  上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var">
+<meta name="keywords" content="深拷贝与浅拷贝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中深拷贝与浅拷贝">
+<meta property="og:url" content="https://waitsmart.github.io/2019/07/17/深拷贝与浅拷贝/index.html">
 <meta property="og:site_name" content="星辰">
-<meta property="og:description" content="个人博客，前端学习">
+<meta property="og:description" content="拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码： 12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10  上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-17T01:39:57.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="星辰">
-<meta name="twitter:description" content="个人博客，前端学习">
+<meta name="twitter:title" content="JS中深拷贝与浅拷贝">
+<meta name="twitter:description" content="拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码： 12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10  上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var">
 
 
 
@@ -116,14 +118,14 @@
 
 
 
-  <link rel="canonical" href="https://waitsmart.github.io/">
+  <link rel="canonical" href="https://waitsmart.github.io/2019/07/17/深拷贝与浅拷贝/">
 
 
 
 
 <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
 
-  <title>星辰</title>
+  <title>JS中深拷贝与浅拷贝 | 星辰</title>
   
 
 
@@ -142,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
     <a target="_blank" href="https://github.com/waitsmart"><img style="position: absolute; right: 0; border: 0; top: 0;z-index: 100;" width="149" ; height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
@@ -290,9 +291,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -322,9 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/17/深拷贝与浅拷贝/" itemprop="url">JS中深拷贝与浅拷贝</a></h1>
+          <h1 class="post-title" itemprop="name headline">JS中深拷贝与浅拷贝</h1>
         
 
         <div class="post-meta">
@@ -404,21 +403,38 @@
       
 
       
-        
-          
-          拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码：
-12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10
+        <h2 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h2><p>也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。<br>首先考虑下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 10;</span><br><span class="line">var b = a;</span><br><span class="line">b = 20;</span><br><span class="line">console.log(a);   //10</span><br><span class="line">console.log(b);   //10</span><br></pre></td></tr></table></figure>
 
-上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var b=a;时，是把a的值10赋值给了b，而不是把a给了b。说到基础数据类型，就不得不提到引用数据类型，这是js中的两种数据类型。对象（引用数据类型）是保存到堆内存中的，变量保存的是对象的内存地址。然后
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/17/深拷贝与浅拷贝/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<p>上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。<br>这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var b=a;时，是把a的值10赋值给了b，<br>而不是把a给了b。<br>说到基础数据类型，就不得不提到引用数据类型，这是js中的两种数据类型。<br>对象（引用数据类型）是保存到堆内存中的，变量保存的是对象的内存地址。<br>然后考虑下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var lilei = &#123;</span><br><span class="line">	age:22,</span><br><span class="line">	name:&apos;lilei&apos;</span><br><span class="line">&#125;</span><br><span class="line">var lilei2 = lilei;</span><br><span class="line">lilei2.age = 24;</span><br><span class="line">console.log(lilei);  </span><br><span class="line">console.log(lilei2);</span><br></pre></td></tr></table></figure>
+
+<p>从这个代码块，我们测试后可以得到，lilei和lilei2的age都变为了24，那么，我们该如何拷贝对象呢？</p>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>首先还是这个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var lilei = &#123;</span><br><span class="line">	age:22,</span><br><span class="line">	name:&apos;lilei&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为这个一个对象，所以我们可以考虑，创建一个构造函数，来遍历对象中key，然后添加他们到新的对象中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function clone(obj)&#123;</span><br><span class="line">	var newObj = &#123;&#125;;</span><br><span class="line">	for(var key in obj)&#123;</span><br><span class="line">		newObj[key]=obj[key]</span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后让想要克隆的对象，调用这个构造函数，参数就是克隆本体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var lilei2=clone(lilei)</span><br><span class="line">lilei2.age = 24;</span><br><span class="line">console.log(lilei);</span><br><span class="line">console.log(lilei2);</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们到控制台去查看结果。结果正如我们所料！lilei2的age被改变为24，而lilei的age还是22.<br>但是，请再深入思考一下。。。这样真的就可以了吗？<br>！<a href="http://pic1.win4000.com/wallpaper/2017-12-26/5a41be41ce9dc.jpg" target="_blank" rel="noopener">思考ing</a><br>下面考虑一下，把lilei变为更复杂的结构，内嵌对象，数组以及null。<br>为什么要考虑null呢?因为我们要用typeof判断数据类型，而null会被判断为对象。<br>可以尝试下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var lilei = null</span><br><span class="line">function clone(obj)&#123;</span><br><span class="line">	var newObj = &#123;&#125;;</span><br><span class="line">	for(var key in obj)&#123;</span><br><span class="line">		newObj[key]=obj[key]</span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br><span class="line">//改变</span><br><span class="line">var lilei2=clone(lilei)</span><br><span class="line">console.log(lilei);</span><br><span class="line">console.log(lilei2);</span><br></pre></td></tr></table></figure>
+
+<p>会发现：null变成了{}。<br>然后让我们考虑下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var lilei = &#123;</span><br><span class="line">	name:&apos;lilei&apos;,</span><br><span class="line">	age:22,</span><br><span class="line">	address:&#123;</span><br><span class="line">		prov:&quot;河南&quot;,</span><br><span class="line">		city:&quot;郑州&quot;,</span><br><span class="line">		area:&quot;金水区&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	score:[100,90,80]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后试着还是用上面的构造函数，写一写改变，看一看结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function clone(obj)&#123;</span><br><span class="line">	var newObj = &#123;&#125;;</span><br><span class="line">	for(var key in obj)&#123;</span><br><span class="line">		newObj[key]=obj[key]</span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br><span class="line">//改变</span><br><span class="line">var lilei2=clone(lilei)</span><br><span class="line">lilei2.age = 24;</span><br><span class="line">lilei2.address.area=&quot;饮水区&quot;;</span><br><span class="line">lilei2.score[2]=100;</span><br><span class="line">console.log(lilei);</span><br><span class="line">console.log(lilei2);</span><br></pre></td></tr></table></figure>
+
+<p>仔细看一看哪些改变了，哪些没有改变呢？<br>可以看到，score[2]和address里的area，lilei也跟着改变了，这里我们可以看到：<br>这是因为，浅拷贝没有复制内嵌的对象或数组，而是复制了地址，当内容改变，引用了这个地址的都会发生改变。<br>** 浅拷贝：如果包含内嵌的对象或数组，则不再复制副本 **
+由此引出深拷贝：<br>** 深拷贝：如果包含内嵌的对象或数组，也复制副本 **
+那么什么方法可以实现深拷贝呢？可以改造以下构造函数。</p>
+<h4 id="以下是深拷贝的方法："><a href="#以下是深拷贝的方法：" class="headerlink" title="以下是深拷贝的方法："></a>以下是深拷贝的方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function clone(obj)&#123;</span><br><span class="line">	//针对传过的是null的时候</span><br><span class="line">	if(obj===null)&#123;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line">	//传来的是数组,通过slice返回新数组</span><br><span class="line">	if(&#123;&#125;.toString.call(obj)===&quot;[object Array]&quot;)&#123;</span><br><span class="line">		var newArr=[];</span><br><span class="line">		newArr=obj.slice();</span><br><span class="line">		return newArr;</span><br><span class="line">	&#125;</span><br><span class="line">	//上面两种排除后，剩下是对象</span><br><span class="line">	var newObj=&#123;&#125;;</span><br><span class="line">	for(var key in obj)&#123;</span><br><span class="line">		if(typeof obj[key]!==&quot;object&quot;)&#123;</span><br><span class="line">			//如果原对象中当前属性值是原始类型</span><br><span class="line">			newObj[key]=obj[key]</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			newObj[key]=clone(obj[key])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，结束。大家可以测试一下。<br>如果有误，或是交流，可以留言或者发邮件。再见！</p>
+
       
     </div>
     
@@ -428,339 +444,97 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.jpg" alt="笔落星往 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aipay.jpg" alt="笔落星往 Alipay">
+        <p>Alipay</p>
+      </div>
+    
 
     
 
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    笔落星往
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://waitsmart.github.io/2019/07/17/深拷贝与浅拷贝/" title="JS中深拷贝与浅拷贝">https://waitsmart.github.io/2019/07/17/深拷贝与浅拷贝/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    
+      <div>
+	
+<div style="text-align:center;color: #ccc;font-size:14px;">
+	------ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ------</div>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://waitsmart.github.io/2019/07/07/解决跨域的几种方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="笔落星往">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/yuanzi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="星辰">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/07/解决跨域的几种方式/" itemprop="url">解决跨域的几种方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-07T10:57:32+08:00">
-                2019-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/深拷贝与浅拷贝/" rel="tag"><i class="fa fa-tag"></i> 深拷贝与浅拷贝</a>
           
-            
-          
-
-          
-          
-             <span id="/2019/07/07/解决跨域的几种方式/" class="leancloud_visitors" data-flag-title="解决跨域的几种方式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  558
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          什么是跨域？为什么会有这个问题？因为浏览器同源策略：禁止跨不同源头访问资源。仅限于ajax*跨域：从一个域名下的网页，向另一个域名下的服务端发送ajax请求—受服务器同源策略限制，禁止发送**
-域名不同、子级域名不同、端口号不同、协议不同、同一台及其的域名和ip之间相互访问这些都是会报错的！！##例如这些##http://www.a.com  -&gt;http://www.b.comhttp://www.b.a.com -&gt; http://www.c.a.comhttp://localhost:5500  -&gt;http://localhost:3300http://localho
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/07/解决跨域的几种方式/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/07/解决跨域的几种方式/" rel="next" title="解决跨域的几种方式">
+                <i class="fa fa-chevron-left"></i> 解决跨域的几种方式
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://waitsmart.github.io/2019/06/25/第二篇-说点什么好呢/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="笔落星往">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/yuanzi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="星辰">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/第二篇-说点什么好呢/" itemprop="url">第二篇 说点什么好呢</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T21:41:23+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/25/第二篇-说点什么好呢/" class="leancloud_visitors" data-flag-title="第二篇 说点什么好呢">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  0
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/25/第二篇-说点什么好呢/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -770,340 +544,53 @@
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://waitsmart.github.io/2019/06/25/我的测试文字/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="笔落星往">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/yuanzi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="星辰">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/我的测试文字/" itemprop="url">我的测试文字</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T11:06:40+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/25/我的测试文字/" class="leancloud_visitors" data-flag-title="我的测试文字">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  48
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          $$\begin{eqnarray}\nabla\cdot\vec{E} &amp;=&amp; \frac{\rho}{\epsilon_0} \\nabla\cdot\vec{B} &amp;=&amp; 0 \\nabla\times\vec{E} &amp;=&amp; -\frac{\partial B}{\partial t} \\nabla\times\vec{B} &amp;=&amp; \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)\end{eqnarray}$$
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/25/我的测试文字/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://waitsmart.github.io/2019/06/25/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="笔落星往">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/yuanzi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="星辰">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T09:22:46+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/25/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  73
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-More 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/25/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDkwNy8yMTQyOQ=="></div>
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
 
   
 
 
-          </div>
-          
-
-
-          
 
         </div>
         
@@ -1124,8 +611,17 @@ More
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1215,6 +711,22 @@ More
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝"><span class="nav-number">1.</span> <span class="nav-text">拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下是深拷贝的方法："><span class="nav-number">2.0.1.</span> <span class="nav-text">以下是深拷贝的方法：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1367,6 +879,10 @@ More
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1395,6 +911,17 @@ More
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

@@ -8,8 +8,48 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>个人博客，前端学习</description>
-    <pubDate>Wed, 17 Jul 2019 01:39:57 GMT</pubDate>
+    <pubDate>Sat, 12 Oct 2019 07:56:25 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>新电脑，github，博客</title>
+      <link>https://waitsmart.github.io/2019/10/12/%E7%94%B5%E8%84%91%EF%BC%8Cgithub%EF%BC%8C%E5%8D%9A%E5%AE%A2/</link>
+      <guid>https://waitsmart.github.io/2019/10/12/%E7%94%B5%E8%84%91%EF%BC%8Cgithub%EF%BC%8C%E5%8D%9A%E5%AE%A2/</guid>
+      <pubDate>Sat, 12 Oct 2019 07:54:27 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;今天又换了位置，又要带着博客搬家了。记不住命令，导致每次都要去网上搜索，于是，今天决定把整理下来。&lt;/p&gt;
+&lt;p&gt;拷贝原博客文件&lt;br&gt;我直接全拷了，不要问我为什么。&lt;br&gt;这个链接是告诉你不想全拷的话可以只拷哪些&lt;/p&gt;
+&lt;p&gt;安装git：&lt;br&gt;从官网下载，然后安装。&lt;
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>今天又换了位置，又要带着博客搬家了。记不住命令，导致每次都要去网上搜索，于是，今天决定把整理下来。</p><p>拷贝原博客文件<br>我直接全拷了，不要问我为什么。<br>这个链接是告诉你不想全拷的话可以只拷哪些</p><p>安装git：<br>从官网下载，然后安装。</p><p>打开git bash，设置用户名称和邮件地址</p><p>$git config –global user.name “username”<br>$git confit –global user.email “<a href="mailto:username@example.com" target="_blank" rel="noopener">username@example.com</a>“引号里面是要填你自己的用户名和邮箱地址</p><p>绑定ssh key</p><p>ssh-keygen -t rsa<br>运行此命令，然后按三次回车。它就会在你的用户主目录下生成.ssh的文件夹，里面有id_rsa.pub和id_rsa两个文件，第一个就是我们需要的公钥，用记事本或者什么打开吧，然后复制一下里面的内容。登录GitHub，打开[Settings]-&gt;[SSH and GPG keys],然后点击[new SSH key],填上任意title，在文本框粘贴之前复制的内容。然后[Add SSH Key]。就可以啦！</p><p>安装Node.js<br>去官网下载安装一下</p><p>安装Hexo<br>$ npm install hexo-cli -g<br>安装模块<br>把你从原来电脑拷贝的博客，粘贴到新的电脑，然后打开这个文件夹。右键git bash，然后</p><p>$ npm install<br>关联github<br>我是这样做的</p><p>$ git remote add origin <a href="https://github.com/username/库名称" target="_blank" rel="noopener">https://github.com/username/库名称</a><br>但是有几个问题：</p><p>这个如果报了这个错误：<br>fatal: remote origin already exists.（报错远程起源已经存在。）<br>就输入</p><p>先输入 git remote rm origin<br>再输入 git remote add origin<strong><strong><strong>**</strong></strong></strong><br>如果报了这个错误<br>Error: Spawn failed<br>你可以</p><p>先把git加入系统环境变量；<br>再将博客目录里的.git文件夹删除<br>命令步骤：<br>hexo clean<br>hexo  g<br>hexo  d<br>我只用了hexo clean，就好了。仅供参考</p><p>还有之后会有一个问题<br>你在弹窗中输入用户名和密码后，git的命令窗过会会显示：<br>Username for “<a href="https://github.com&quot;" target="_blank" rel="noopener">https://github.com&quot;</a>:第一次遇到的时候，我直接按了enter，然后gg了。后来在网上看了一些，不太喜欢。然后我就输入了github的username，在弹窗中输入密码，就可以了。</p><p>最后就是部署了<br>hexo g<br>hexo d<br>这样子应该就可以了。反正我好了，有什么问题可以留言互相交流一下，就酱紫吧</p><p>哦对了<br>有一个hexo的工具很有用，叫做hexo-admin</p><p>npm install –save hexo-admin<br>hexo server -d<br>open <a href="http://localhost:4000/admin/" target="_blank" rel="noopener">http://localhost:4000/admin/</a><br>这个可以在在你开了本地服务后，在浏览器中写markdown文档，右边还可以对照，对我这种不熟练的人来说，真是太有帮助啦！！这篇文档就是在这个东西上写的，如果你看到了这篇博客，说明搬家成功了。有缘再见~</p>]]></content:encoded>
+      
+      <comments>https://waitsmart.github.io/2019/10/12/%E7%94%B5%E8%84%91%EF%BC%8Cgithub%EF%BC%8C%E5%8D%9A%E5%AE%A2/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://waitsmart.github.io/2019/10/12/hello-world/</link>
+      <guid>https://waitsmart.github.io/2019/10/12/hello-world/</guid>
+      <pubDate>Sat, 12 Oct 2019 07:34:21 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content:encoded>
+      
+      <comments>https://waitsmart.github.io/2019/10/12/hello-world/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>JS中深拷贝与浅拷贝</title>
@@ -87,25 +127,6 @@
       <content:encoded><![CDATA[<p>$$<br>\begin{eqnarray}<br>\nabla\cdot\vec{E} &amp;=&amp; \frac{\rho}{\epsilon_0} \<br>\nabla\cdot\vec{B} &amp;=&amp; 0 \<br>\nabla\times\vec{E} &amp;=&amp; -\frac{\partial B}{\partial t} \<br>\nabla\times\vec{B} &amp;=&amp; \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)<br>\end{eqnarray}<br>$$</p>]]></content:encoded>
       
       <comments>https://waitsmart.github.io/2019/06/25/%E6%88%91%E7%9A%84%E6%B5%8B%E8%AF%95%E6%96%87%E5%AD%97/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://waitsmart.github.io/2019/06/25/hello-world/</link>
-      <guid>https://waitsmart.github.io/2019/06/25/hello-world/</guid>
-      <pubDate>Tue, 25 Jun 2019 01:22:46 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-        
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content:encoded>
-      
-      <comments>https://waitsmart.github.io/2019/06/25/hello-world/#disqus_thread</comments>
     </item>
     
   </channel>

@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="星辰">
 <meta property="og:description" content="拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码： 12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10  上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T01:39:57.856Z">
+<meta property="og:updated_time" content="2019-07-17T01:39:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中深拷贝与浅拷贝">
 <meta name="twitter:description" content="拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码： 12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10  上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var">
@@ -125,7 +125,7 @@
 
 <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
 
-  <title>JS中深拷贝与浅拷贝 | 星辰</title>
+  <title>JS中深拷贝与浅拷贝 | 星辰</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -144,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
     <a target="_blank" href="https://github.com/waitsmart"><img style="position: absolute; right: 0; border: 0; top: 0;z-index: 100;" width="149" ; height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
@@ -530,6 +530,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/12/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -638,7 +642,7 @@ var jiathis_config={
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1394,7 +1398,24 @@ var jiathis_config={
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

@@ -1,3 +1,5 @@
 # 使用Hexo 搭建的静态博客
 ## 参考：
 [wangwlj'sBlog](http://wangwlj.com/2017/09/09/blog-opti/)
+#### hexo server -d 可以开启本地博客服务
+访问 localhost:4000/admin  编辑博客

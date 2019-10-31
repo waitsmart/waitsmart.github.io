@@ -1026,7 +1026,7 @@ More
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  985
+                  1.5k
                 </span>
               
 
@@ -1053,10 +1053,10 @@ More
       
         
           
-          拷贝也就是克隆，最关键的一点是，我们对克隆副本的修改不会影响到本体，就是一次成功的克隆。首先考虑下面代码：
-12345var a = 10;var b = a;b = 20;console.log(a);   //10console.log(b);   //10
-
-上面这个代码，已经实现了拷贝，因为在改变了b之后，a没有随之改变。这是因为，在js中，基础数据类型的值是直接在栈内存中存储的。当var b=a;时，是把a的值10赋值给了b，而不是把a给了b。说到基础数据类型，就不得不提到引用数据类型，这是js中的两种数据类型。对象（引用数据类型）是保存到堆内存中的，变量保存的是对象的内存地址。然后
+          
+拷贝拷贝，就像现在电脑前的你用鼠标右键一个文件，然后复制、粘贴，就是一次拷贝。拷贝是为了得到这个文件或者数据的副本，既然是副本，就不能影响到本体。但是在js中，我们该如何拷贝呢？是直接用‘=’来进行赋值吗？  
+首先考虑下面代码：
+12345678910var a = 10;var b = a;console.log(a);   //10console.log(b);   //10//可以看到  b通过赋值获得了a的值。//下面我们需要试一下  b会不会影响到a？b = 20;console.log(a);   //10console.log(b);   //20//可以看到  a和b是互不
           ...
           <!--noindex-->
           <div class="post-button text-center">
